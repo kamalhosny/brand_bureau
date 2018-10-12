@@ -9,8 +9,13 @@ class Attachment < ApplicationRecord
   belongs_to :project
 
   ## Callbacks
+  after_initialize :prepare_defaults, unless: :persisted?
   before_validation :upload_base64_file, :upload_url_file
   after_create :update_attachment_type
+
+  def prepare_defaults
+    self.preview ||= false
+  end
 
   def upload_base64_file
     self.file = FilelessIO.from_base64(file_name, file_base64) if file_base64.present? && file_name.present?

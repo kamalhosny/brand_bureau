@@ -43,6 +43,10 @@ class FileUploader < CarrierWave::Uploader::Base
     %w[jpg jpeg png svg 3gp mp4 wmv rmvb]
   end
 
+  def image?(new_file)
+    new_file.content_type.start_with? 'image'
+  end
+
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename

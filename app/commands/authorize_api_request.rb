@@ -20,7 +20,6 @@ class AuthorizeApiRequest
   end
 
   def decoded_auth_token
-    byebug
     @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
   end
 

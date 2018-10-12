@@ -43,6 +43,12 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:title,
                                     :description,
                                     :client_name,
+                                    preview_image_attributes: [
+                                      :remote_file_url,
+                                      :file_base64,
+                                      :file_name,
+                                      file: [:url]
+                                    ],
                                     attachments_attributes:
                                       [
                                         :remote_file_url,
