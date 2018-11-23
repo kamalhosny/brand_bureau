@@ -39,7 +39,7 @@ namespace :deploy do
   task :secret_symlink do
     on roles(:app) do
       # execute "rails credentials:edit"
-      execute "sudo ln -nfs #{shared_path}/master.key #{release_path}/config/master.key"
+      # execute "sudo "
    end
   end
 
