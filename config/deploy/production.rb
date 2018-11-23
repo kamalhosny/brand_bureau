@@ -61,4 +61,4 @@
 #   }
 
 server '159.89.28.2', roles: %w[app db web], primary: true
-set :ssh_options, user: 'root', port: 559, forward_agent: true
+set :ssh_options, user: 'root', forward_agent: true

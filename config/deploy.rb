@@ -44,7 +44,6 @@ namespace :deploy do
 
   after  :updating,     :secret_symlink
   after  :updating,     :nginx_symlink
-  after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
