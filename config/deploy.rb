@@ -56,3 +56,4 @@ namespace :logs do
       execute "tail -f #{shared_path}/log/#{fetch(:stage)}.log"
     end
   end
+end
