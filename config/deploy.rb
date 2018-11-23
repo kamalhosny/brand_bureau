@@ -45,7 +45,7 @@ namespace :deploy do
   end
 
 
-  after  :updating,     :secret_symlink
+  after  :finishing,     :secret_symlink
   after  :updating,     :nginx_symlink
   after  :finishing,    :cleanup
   after  :finishing,    :restart
