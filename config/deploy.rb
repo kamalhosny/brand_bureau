@@ -38,7 +38,8 @@ namespace :deploy do
   desc 'Symlinks Secret.yml to the release path'
   task :secret_symlink do
     on roles(:app) do
-      execute "sudo ln -nfs #{shared_path}/credentials.yml.enc #{release_path}/config/credentials.yml.enc"
+      execute "rails credentials:edit"
+      # execute "sudo ln -nfs #{shared_path}/credentials.yml.enc #{release_path}/config/credentials.yml.enc"
    end
   end
 
