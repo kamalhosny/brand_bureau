@@ -40,10 +40,12 @@ namespace :deploy do
     on roles(:app) do
       # execute "rails credentials:edit"
       # execute "sudo "
+      Rake::Task["credentials:edit"].execute
    end
   end
 
-  # after  :updating,     :secret_symlink
+
+  after  :updating,     :secret_symlink
   after  :updating,     :nginx_symlink
   after  :finishing,    :cleanup
   after  :finishing,    :restart
