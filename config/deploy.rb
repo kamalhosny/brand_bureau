@@ -40,7 +40,8 @@ namespace :deploy do
     on roles(:app) do
       # execute "rails credentials:edit"
       # execute "sudo "
-      Rake::Task["credentials:edit"].execute
+      # Rake::Task["credentials:edit"].execute
+      execute "export SECRET_KEY_BASE='test_production_key'"
    end
   end
 
