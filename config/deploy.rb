@@ -9,7 +9,7 @@ set :repo_url, "git@github.com:kamalhosny/brand_bureau.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to,       "/home/brand_bureau_api"
-set :user,            'user'
+set :user,            'root'
 
 set :pty,             true
 set :use_sudo,        false
@@ -39,7 +39,7 @@ namespace :deploy do
   task :secret_symlink do
     on roles(:app) do
       # execute "rails credentials:edit"
-      # execute "sudo ln -nfs #{shared_path}/credentials.yml.enc #{release_path}/config/credentials.yml.enc"
+      execute "sudo ln -nfs #{shared_path}/master.key #{release_path}/config/master.key"
    end
   end
 
